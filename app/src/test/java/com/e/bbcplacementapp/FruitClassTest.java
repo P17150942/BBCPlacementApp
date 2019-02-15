@@ -38,4 +38,23 @@ public class FruitClassTest{
         assertEquals(350, fruit.getWeight());
 
     }
+
+    public void TestToString(){
+        Fruit fruit = new Fruit ("apple", 100, 200);
+
+        assertEquals("Fruit: [Type: " + fruit.getType() +
+                ", Price: " + fruit.getPrice() +
+                ", Weight: " + fruit.getWeight() + "]"
+                ,fruit.toString());
+    }
+
+    public void TestEquals() {
+        Fruit fruit = new Fruit ("apple", 100, 200);
+        Fruit fruit2 = new Fruit ("apple", 100, 200);
+        Fruit fruit3 = new Fruit ("orange", 100, 200);
+
+        assertEquals(true, fruit.equals(fruit2));
+        assertEquals(false, fruit.equals(fruit3));
+
+    }
 }
