@@ -7,6 +7,14 @@ import static org.junit.Assert.*;
 
 public class FruitClassTest{
 
+
+    @Test
+    public void TestDefaultConstructor(){
+        assertEquals("Test the Type", "", fruit.getType());
+        assertEquals("Test the Weight", 0, fruit.getPrice());
+        assertEquals("Test the Price", 0, fruit.getWeight());
+    }
+
     @Test
     public void TestFruitConstructor(){
         Fruit fruit = new Fruit ("apple", 100, 200);
