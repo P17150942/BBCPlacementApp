@@ -8,16 +8,17 @@ import android.widget.Button;
 public class FruitButton {
     private Fruit fruit;
     private Button button;
-    private Context context;
-    public FruitButton(Context context){
-        //delegate to button
+
+
+    public  FruitButton(){
+        this.fruit = new Fruit();
+        this.button = new Button(new MainActivity());
+
     }
 
     public FruitButton(Fruit fruit, Button button){
-
-    }
-
-    public FruitButton(Fruit fruit, Context context){
+        this.fruit = fruit;
+        this.button = button;
 
     }
 
@@ -44,14 +45,17 @@ public class FruitButton {
     }
 
     private void changeActivity( Intent intent){
-        intent.putExtra("fruit",this.fruit);
+        intent.putExtra("fruit", this.fruit);
+        button.getContext().startActivity(intent);
 
 
 
     }
     public Context getContext(){
-        return context;
+        return button.getContext();
     }
+
+
 
 
 }
