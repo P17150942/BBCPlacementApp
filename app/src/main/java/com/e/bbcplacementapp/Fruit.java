@@ -1,5 +1,8 @@
 package com.e.bbcplacementapp;
 
+import android.util.Log;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Fruit {
@@ -13,7 +16,10 @@ public class Fruit {
         this.weight = 0;
     }
 
-    public Fruit(JSONObject jsonObj){
+    public Fruit(JSONObject jsonObj) throws JSONException{
+        this.type = jsonObj.getString("type");
+        this.price = jsonObj.getInt("price");
+        this.weight = jsonObj.getInt("weight");
 
     }
 

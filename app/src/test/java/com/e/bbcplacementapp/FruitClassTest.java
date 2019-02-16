@@ -1,6 +1,8 @@
 package com.e.bbcplacementapp;
 
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.junit.Test;
 import org.json.JSONObject;
@@ -21,7 +23,9 @@ public class FruitClassTest{
 
     @Test
     public void TestJsonConstructor() throws JSONException {
-        Fruit fruit = new Fruit(new JSONObject("{\"type\":\"apple\", \"price\":149, \"weight\":120}"));
+        JSONObject jsonObj = new JSONObject("{\"type\":\"apple\", \"price\":149, \"weight\":120}");
+
+        Fruit fruit = new Fruit(jsonObj);
         Fruit fruit2 = new Fruit("apple",149,120);
         assertTrue("Testing Json Constructor",fruit.equals(fruit2));
 
