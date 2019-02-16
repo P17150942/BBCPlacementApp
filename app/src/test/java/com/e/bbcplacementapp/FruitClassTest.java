@@ -1,7 +1,9 @@
 package com.e.bbcplacementapp;
 
 
+import org.json.JSONException;
 import org.junit.Test;
+import org.json.JSONObject;
 
 import static org.junit.Assert.*;
 
@@ -15,6 +17,15 @@ public class FruitClassTest{
         assertEquals("Test the Type", "", fruit.getType());
         assertEquals("Test the Weight", 0, fruit.getPrice());
         assertEquals("Test the Price", 0, fruit.getWeight());
+    }
+
+    @Test
+    public void TestJsonConstructor() throws JSONException {
+        Fruit fruit = new Fruit(new JSONObject("{\"type\":\"apple\", \"price\":149, \"weight\":120}"));
+        Fruit fruit2 = new Fruit("apple",149,120);
+        assertTrue("Testing Json Constructor",fruit.equals(fruit2));
+
+
     }
 
     @Test

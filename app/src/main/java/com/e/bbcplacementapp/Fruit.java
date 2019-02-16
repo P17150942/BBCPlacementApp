@@ -1,5 +1,7 @@
 package com.e.bbcplacementapp;
 
+import org.json.JSONObject;
+
 public class Fruit {
     private String type;
     private int price;
@@ -9,6 +11,10 @@ public class Fruit {
         this.type = "";
         this.price = 0;
         this.weight = 0;
+    }
+
+    public Fruit(JSONObject jsonObj){
+
     }
 
     public Fruit (String type, int price, int weight){
