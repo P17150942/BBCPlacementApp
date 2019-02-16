@@ -20,7 +20,6 @@ public class Fruit {
         this.type = jsonObj.getString("type");
         this.price = jsonObj.getInt("price");
         this.weight = jsonObj.getInt("weight");
-
     }
 
     public Fruit (String type, int price, int weight){
