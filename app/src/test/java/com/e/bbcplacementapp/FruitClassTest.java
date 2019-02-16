@@ -1,11 +1,10 @@
 package com.e.bbcplacementapp;
 
 
-import android.util.Log;
-
 import org.json.JSONException;
 import org.junit.Test;
 import org.json.JSONObject;
+
 
 import static org.junit.Assert.*;
 
