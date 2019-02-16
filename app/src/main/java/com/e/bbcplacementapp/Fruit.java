@@ -1,14 +1,18 @@
 package com.e.bbcplacementapp;
 
+import android.os.Parcelable;
 import android.util.Log;
+import android.os.Parcel;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Fruit {
+public class Fruit implements Parcelable {
     private String type;
     private int price;
     private int weight;
+
 
     public Fruit(){
         this.type = "";
@@ -68,5 +72,17 @@ public class Fruit {
         return this.type.equals(other.type) &&
                 this.price == other.price &&
                 this.weight == other.weight;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.type);
+        dest.writeInt(this.price);
+        dest.writeInt(this.weight);
     }
 }
