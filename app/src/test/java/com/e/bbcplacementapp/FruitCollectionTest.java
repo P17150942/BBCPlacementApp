@@ -20,7 +20,7 @@ public class FruitCollectionTest {
     public void TestAddFind(){
         FruitCollection fc = new FruitCollection();
         fc.add(new Fruit("apple",100,100));
-        assertEquals(new Fruit("apple",100,100), fc.find(0));
+        assertEquals(new Fruit("apple",100,100), fc.getFruit(0));
 
 
 
@@ -33,7 +33,7 @@ public class FruitCollectionTest {
         fc.remove(0);
 
         FruitCollection fc2 = new FruitCollection();
-        Fruit f = new Fruit("apple",100,10)
+        Fruit f = new Fruit("apple",100,10);
         fc.add(new Fruit("apple",100,10));
         fc2.remove(f);
 
