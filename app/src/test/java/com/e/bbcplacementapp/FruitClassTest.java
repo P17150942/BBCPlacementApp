@@ -10,6 +10,8 @@ public class FruitClassTest{
 
     @Test
     public void TestDefaultConstructor(){
+        Fruit fruit = new Fruit ();
+
         assertEquals("Test the Type", "", fruit.getType());
         assertEquals("Test the Weight", 0, fruit.getPrice());
         assertEquals("Test the Price", 0, fruit.getWeight());
@@ -47,6 +49,7 @@ public class FruitClassTest{
 
     }
 
+    @Test
     public void TestToString(){
         Fruit fruit = new Fruit ("apple", 100, 200);
 
@@ -56,6 +59,7 @@ public class FruitClassTest{
                 ,fruit.toString());
     }
 
+    @Test
     public void TestEquals() {
         Fruit fruit = new Fruit ("apple", 100, 200);
         Fruit fruit2 = new Fruit ("apple", 100, 200);
