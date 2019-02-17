@@ -1,12 +1,14 @@
 package com.e.bbcplacementapp;
 
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.android.volley.*;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -36,13 +38,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void changeActivity(){
+        startActivity(new Intent(this, FruitPage.class));
+    }
     public void process(JSONObject obj){
 
         try{
             JSONArray fruitArray = obj.getJSONArray("fruit");
             for (int i = 0; i < fruitArray.length(); i++){
                 Button button = new Button(this);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        changeActivity();
+                    }
+                });
                 Fruit fruit = new Fruit(obj.getJSONArray("fruit").getJSONObject(i));
+
                 button.setText(fruit.getType());
                 button.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
                 fruitButtonHolder.addView(button);

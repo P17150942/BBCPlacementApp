@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BBCPlacementApp</string>
+    <string name="title_activity_fruit_page">FruitPage</string>
 </resources>

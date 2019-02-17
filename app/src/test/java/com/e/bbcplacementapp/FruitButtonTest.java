@@ -12,13 +12,7 @@ import static junit.framework.TestCase.assertTrue;
 public class FruitButtonTest {
 
 
-    @Test
-    public void TestDefaultConstructor(){
 
-        FruitButton fb = new FruitButton();
-        assertTrue(fb.getButton().equals(new Button(new FruitPage())));
-        assertTrue(fb.getFruit().equals(new Fruit()));
-    }
 
     @Test
     public void TestConstructor(){
