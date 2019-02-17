@@ -8,17 +8,32 @@ import android.widget.Button;
 public class FruitButton {
     private Fruit fruit;
     private Button button;
-
+    private Context context;
 
     public  FruitButton(){
         this.fruit = new Fruit();
         this.button = new Button(new MainActivity());
+        this.context = button.getContext();
+        this.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeActivity(new Intent(context, FruitPage.class));
+            }
+        });
 
     }
 
     public FruitButton(Fruit fruit, Button button){
         this.fruit = fruit;
         this.button = button;
+        this.context = button.getContext();
+        this.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                changeActivity(new Intent(context, FruitPage.class));
+            }
+        });
 
     }
 
@@ -39,20 +54,21 @@ public class FruitButton {
         this.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeActivity(new FruitPage().getIntent());
+                changeActivity(new Intent(context, FruitPage.class));
             }
         });
     }
 
-    private void changeActivity( Intent intent){
+    public void changeActivity( Intent intent){
         intent.putExtra("fruit", this.fruit);
-        button.getContext().startActivity(intent);
+       context.startActivity(intent);
+
 
 
 
     }
     public Context getContext(){
-        return button.getContext();
+        return context;
     }
 
 
