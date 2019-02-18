@@ -14,6 +14,26 @@ public class Fruit implements Parcelable {
     private int weight;
 
 
+    public static Parcelable.Creator<Fruit> CREATOR
+            = new Parcelable.Creator<Fruit>(){
+        @Override
+        public Fruit createFromParcel(Parcel source) {
+            return new Fruit(source);
+        }
+
+        @Override
+        public Fruit[] newArray(int size) {
+            return new Fruit[size];
+        }
+    };
+
+    private Fruit (Parcel in){
+        type = in.readString();
+        price = in.readInt();
+        weight = in.readInt();
+    }
+
+
     public Fruit(){
         this.type = "";
         this.price = 0;
@@ -85,4 +105,7 @@ public class Fruit implements Parcelable {
         dest.writeInt(this.price);
         dest.writeInt(this.weight);
     }
+
+
+
 }

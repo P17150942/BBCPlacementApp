@@ -17,6 +17,7 @@ public class FruitButton {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), FruitPage.class);
+
                 intent.putExtra("fruit", getFruit());
                 getContext().startActivity(intent);
             }
