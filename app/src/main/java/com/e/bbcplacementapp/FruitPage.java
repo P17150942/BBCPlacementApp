@@ -26,8 +26,8 @@ public class FruitPage extends AppCompatActivity {
 
 
         fruitName.setText("Fruit Type: " + fruit.getType());
-        price.setText("Price: " + fruit.getPrice());
-        weight.setText("Weight: " + fruit.getWeight());
+        price.setText("Price: £" + (float) fruit.getPrice() / 100);
+        weight.setText("Weight: " + (float) fruit.getWeight() / 1000 + "kg");
 
 
     }
