@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.android.volley.*;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import android.util.Log;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //
         fruitButtonRegister = new FruitButtonRegister((LinearLayout)findViewById(R.id.fruit_button_holder));
 
         request(
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         );
 
-
+        // creates a button that when pressed can retrive information from the server
         Button serverButton = findViewById(R.id.reload_server);
         serverButton.setText("Reload");
         serverButton.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +59,25 @@ public class MainActivity extends AppCompatActivity {
                                 new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
+                                        long reqTime = System.currentTimeMillis();
                                         processJson(response);
+                                        reqTime = System.currentTimeMillis() - reqTime;
+
+                                        // sends another fire and forget request through Volley when reloading from the server
+                                        request(new StringRequest(Request.Method.GET,
+                                                "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/stats?event=load&data=" + String.valueOf(reqTime),
+                                                new Response.Listener<String>() {
+                                                    @Override
+                                                    public void onResponse(String response) {
+
+                                                    }
+                                                },
+                                                null
+
+                                        ));
+
+
+
                                     }
                                 },null)
 
